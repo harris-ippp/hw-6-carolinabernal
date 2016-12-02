@@ -14,7 +14,7 @@ for y in years:
 dataframes=[]
 for x in files:
     for y in years:
-        header = pd.read_csv(f, nrows = 1).dropna(axis = 1)
+        header = pd.read_csv(f, nrows = 1).dropna(axis = 1) ### What is f?
         d = header.iloc[0].to_dict()
         df = pd.read_csv(f, index_col = 0, thousands = ",", skiprows = [1])
         df.rename(inplace = True, columns = d)
@@ -25,3 +25,4 @@ bigframe=pd.concat(dataframes)
 print(bigframe)
 
 bigframe["Republican Share"]=bigframe["Republican"].div(newframe["Total Votes Cast"])
+### Plot?
